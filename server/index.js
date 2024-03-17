@@ -5,7 +5,7 @@ const fs = require("fs");
 const app = express();
 const port = 3001;
 
-const dir_rootApp = path.dirname(__dirname);
+const dir_rootApp = path.dirname(path.dirname(__dirname));
 
 function printDirectoryStructure(directoryPath, indent = "") {
   const items = fs.readdirSync(directoryPath);
@@ -15,7 +15,7 @@ function printDirectoryStructure(directoryPath, indent = "") {
       return;
     }
     const stats = fs.statSync(itemPath);
-    if (items.length > 15) {
+    if (items.length > 10) {
       console.log(indent + "📁 " + item);
       return;
     }
